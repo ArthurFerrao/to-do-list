@@ -1,0 +1,158 @@
+@font-face {
+  font-family: Violete;
+  src: url('../assets/Violete.ttf');
+}
+body{
+  background-color: #EBEBEB;
+}
+h1{
+  color: #224a8a;
+  font-family:  Violete;
+  font-size: 60px;
+  font-weight: lighter;
+  margin: 0;
+}
+#container{
+  text-align: center;
+  width: 450px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+#activities-list{
+  width: 100%;
+}
+.activity-name{
+  padding: 0 40px 0 20px;
+  border-bottom: 2px solid #C1C1C1;
+  color: #224A8A;
+  font-size: 20px;
+  width: 400px;
+  position: relative;
+}
+.activity-label{
+  width: 350px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: ltr;
+}
+.edit-icon{
+  width: 30px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  filter: opacity(0.4);
+}
+.edit-name{
+  background: none;
+  border: none;
+  font-size: 20px;
+}
+.activity-value {
+  padding-top: 40px;
+  padding-bottom: 5px;
+}
+#input-name{
+  width: 90%;
+  border: none;
+  padding: 8px 35px 8px 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  margin: 8px 0 0 0;
+}
+#add-activity-form{
+  position: relative;
+}
+#add-button{
+  position: absolute;
+  right: 0;
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+  background-color: #8DB3F0;
+  border: none;
+  font-size: 40px;
+  font-weight: lighter;
+  color: white;
+  padding-bottom: 3px;
+  cursor: pointer;
+}
+#add-button:active{
+  transform: scale(0.98);
+}
+.delete-button{
+  background:none;
+  border: none;
+  font-size: 20px;
+  color: #999999;
+  cursor: pointer;
+  padding: 0 5px 2px 5px;
+  border-radius: 5px;
+}
+.delete-button:hover{
+  scale: 1.3;
+  background-color: rgb(219, 53, 53);
+  color: white;
+}
+.delete-button:active{
+  transform: scale(0.9);
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+input[type="checkbox"] + label:before {    
+  border: 1px solid #CBCBCB; 
+  background: white;   
+  content: "\00a0";    
+  display: inline-block;    
+  font: 16px/1em sans-serif;    
+  height: 16px;    
+  margin: 0 .25em 0 0;    
+  padding:0;    
+  vertical-align: top;    
+  width: 16px;    
+  border-radius:4px;
+}
+input[type="checkbox"]:checked + label:before {
+  border-color: #8DB3F0;
+  background: #8DB3F0;    
+  color: #FFF;    
+  content: "\2713";    
+  text-align: center;
+} 
+input[type="checkbox"]:checked + label:after {    
+  font-weight: bold;
+}
+.overline-name{
+  text-decoration: line-through;
+}
+#message-empty-activities{
+  color:rgb(138, 137, 137);
+  clear: right;
+  padding-top: 20px;
+}
+#filter{
+  background-color: #d95656;
+  margin: 0 20px;
+  display: inline-block;
+  padding: 2px 15px;
+  border-radius: 0 0 40px 40px;
+  float: right;
+}
+#filter button{
+  background: none;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+}
+#filter .filter-active{
+  border: 1px solid white;
+  border-radius: 5px;
+}

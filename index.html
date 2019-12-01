@@ -1,0 +1,54 @@
+<html ng-app="toDoList">
+<head>
+  <title>To-do list</title>
+  <link rel="stylesheet" type="text/css" href="style/app.css">
+  <script src="lib/angular.js"></script>
+  <script src="script/app.js"></script>
+  <script src="script/controllers/toDoListCtrl.js"></script>
+  <script src="script/services/toDoListAPIService.js"></script>
+  <script src="script/config/configValue.js"></script>
+</head>
+<body ng-controller="toDoListCtrl">
+  <div id="container">
+    <h1>{{app}}</h1>
+    <div id="add-activity-form">
+      <input id="input-name" type="text" ng-model="name" placeholder="Adicionar atividade">
+      <button id="add-button" ng-click="addActivity(name)" ng-disabled="!name">+</button>
+      <div id="filter" ng-show="activities.length">
+        <button ng-class="{'filter-active': filterStatus == undefined}" ng-click="updateFilter(undefined)">
+          todos
+        </button>
+        <button ng-class="{'filter-active': filterStatus}" ng-click="updateFilter(true)">
+          feitos
+        </button>
+        <button ng-class="{'filter-active': !filterStatus && filterStatus != undefined}" ng-click="updateFilter(false)">
+          pendentes
+        </button>
+      </div>
+    </div>
+    <div id="message-empty-activities" ng-show="!activities.length">
+      <h4>Você não tem atividades!</h4>
+    </div>
+    <table id="activities-list">
+      <tr ng-repeat="activity in activities | filter:filterStatus">
+        <td class="activity-value">
+          <input ng-model="activity.done" type="checkbox" ng-click="activity.done = !activity.done; updateActivity(activity)">
+          <label></label>
+        </td>
+        <td class="activity-value activity-name" ng-init="edit = false;">
+          <div class="activity-label">
+              <span ng-class="{'overline-name': activity.done}" ng-show="!edit">
+                {{activity.name}}
+              </span>
+              <input class="edit-name" ng-model="activity.name" type="text" ng-show="edit" ng-keypress="editName($event, activity)">
+          </div>
+          <img class="edit-icon" src="assets/edit_icon.png" alt="edit_icon" ng-show="!edit" ng-click="edit = !edit">
+        </td>
+        <td class="activity-value">
+          <button class="delete-button" ng-click="deleteActivity(activity)">x</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
