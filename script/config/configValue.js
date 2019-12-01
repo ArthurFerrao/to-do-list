@@ -1,3 +1,3 @@
 angular.module("toDoList").value("config", {
-  baseURL: "http://localhost:3000"
+  baseURL: "http://things-to-do-api.herokuapp.com"
 });
