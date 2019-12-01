@@ -30,7 +30,7 @@
       <h4>Você não tem atividades!</h4>
     </div>
     <table id="activities-list">
-      <tr ng-repeat="activity in activities | filter:filterStatus">
+      <tr ng-repeat="activity in activities | filter:filterStatus | orderBy:'id'">
         <td class="activity-value">
           <input ng-model="activity.done" type="checkbox" ng-click="activity.done = !activity.done; updateActivity(activity)">
           <label></label>
